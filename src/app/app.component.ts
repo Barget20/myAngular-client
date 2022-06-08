@@ -12,6 +12,8 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 export class AppComponent {
   title = 'myAngular-client';
 
+}
+
   //No longer need in 6.4 HW
 
 //   constructor(public dialog: MatDialog) { }

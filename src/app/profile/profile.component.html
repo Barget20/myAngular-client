@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Profile Information</mat-card-title>
+    </mat-card-header>
+    <!-- User's Profile Information -->
+    <mat-card-content>
+        <p><b>Username: </b> {{user.Username}}</p>
+        <p><b>Email: </b> {{user.Email}}</p>
+        <p><b>Birthday: </b> {{user.Birthday}}</p>
+    </mat-card-content>
+    <!-- Edit & Delete Features -->
+    <mat-card-actions>
+        <button
+            mat-raised-button (click)="openEditProfileDialog()"
+            color="primary">
+            <mat-icon>Edit</mat-icon>
+            Edit Profile
+        </button>
+        <button
+        mat-raised-button (click)="deleteProfile()"
+        color="warn">
+        <mat-icon>Delete</mat-icon>
+        Delete Account Profile
+    </button>
+    </mat-card-actions>
+</mat-card>

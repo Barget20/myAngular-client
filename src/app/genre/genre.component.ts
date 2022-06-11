@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./genre.component.scss']
 })
 export class GenreComponent implements OnInit {
+  genres: any;
 
   constructor(
     @Inject(MatDialog)

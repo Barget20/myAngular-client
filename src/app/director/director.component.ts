@@ -7,7 +7,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./director.component.scss']
 })
 export class DirectorComponent {
-  director: any[] = [];
+  director: any;
 
   constructor(public fetchApiData: FetchApiDataService) { }
 
@@ -17,7 +17,7 @@ export class DirectorComponent {
  
 
   getDirector(): void {
-    this.fetchApiData.getDirector().subscribe((resp: any) => {
+    this.fetchApiData.getDirector("test").subscribe((resp: any) => {
       this.director = resp;
       console.log(this.director);
       return this.director;

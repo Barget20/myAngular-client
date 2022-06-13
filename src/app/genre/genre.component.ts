@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-genre',
@@ -11,7 +10,7 @@ export class GenreComponent implements OnInit {
   genres: any;
 
   constructor(
-    @Inject(MatDialog)
+    @Inject(MAT_DIALOG_DATA)
     public data: {
       Title: string,
       Description: string,

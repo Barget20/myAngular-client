@@ -1,4 +1,14 @@
-<mat-card>
+<div class="genre-dialog-wrapper">
+    <button mat-icon-button
+    color="dark"
+    [mat-dialog-close]="true">
+    <mat-icon class="close">close</mat-icon>
+    </button>
+    <h2 class="genre-title">{{genres.Title}}</h2>
+    <h3 class="genre-description">{{genres.Description}}</h3>
+</div>
+
+<!-- <mat-card>
     <mat-card-title>
         {{genres.Name}}
     </mat-card-title>
@@ -12,4 +22,4 @@
         X
         </button>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->

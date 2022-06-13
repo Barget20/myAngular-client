@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { inject } from '@angular/core/testing';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-synopsis',
@@ -10,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class SynopsisComponent implements OnInit {
 
   constructor(
-    @Inject(MatDialog)
+    @Inject(MAT_DIALOG_DATA)
     public data: {
       Title: string,
       Description: string,

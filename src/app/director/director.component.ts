@@ -1,5 +1,6 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-director',
@@ -9,7 +10,15 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 export class DirectorComponent {
   director: any;
 
-  constructor(public fetchApiData: FetchApiDataService) { }
+  constructor(
+      @Inject(MAT_DIALOG_DATA)
+      public data: {
+        Name: string,
+        Birth: Date,
+        PopTitles: string,
+      })
+     { }
+
 
   ngOnInit(): void {
     this.getDirector();

@@ -1,12 +1,23 @@
-<mat-card>
+<div class="director-dialog-wrapper">
+    <button mat-icon-button
+    color="dark"
+    [mat-dialog-close]="true">
+    <mat-icon class="close">close</mat-icon>
+    </button>
+    <h2 class="director-title">{{director.Name}}</h2>
+    <h3 class="director-description">{{director.Birth}}, {{director.PopTitles}}</h3>
+</div>
+
+
+<!-- <mat-card>
     <mat-card-title>
         {{ director.Name}}</mat-card-title>
         <br>
         <mat-dialog-content>
             <b>Birthday: </b>{{ director.Birth}}
             <br> 
-            <!-- // Popular Titles was used in previous project. Is it supposed to be used here?  -->
-            <b>Popular Titles: {{director.PopTitles}}</b>
+            // Popular Titles was used in previous project. Is it supposed to be used here? 
+             <b>Popular Titles: {{director.PopTitles}}</b>
         </mat-dialog-content>
         <mat-card-actions>
             <button
@@ -16,4 +27,4 @@
             </button>
         
         </mat-card-actions> 
-</mat-card>
+</mat-card> --> -->

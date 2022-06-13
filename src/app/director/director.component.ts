@@ -21,15 +21,6 @@ export class DirectorComponent {
 
 
   ngOnInit(): void {
-    this.getDirector();
   }
  
-
-  getDirector(): void {
-    this.fetchApiData.getDirector("test").subscribe((resp: any) => {
-      this.director = resp;
-      console.log(this.director);
-      return this.director;
-    });
-  }
 }

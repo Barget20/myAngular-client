@@ -4,7 +4,6 @@ import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
 import { SynopsisComponent } from '../synopsis/synopsis.component';
 import { MatDialog } from '@angular/material/dialog';
-import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 
 
 @Component({
@@ -13,7 +12,10 @@ import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_inter
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
+  user: any = {};
   movies: any[] = [];
+  currentUser: any= null;
+  currentFavs: any[] = [];
  
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -29,6 +31,32 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  getUser(): void {
+    const username = localStorage.getItem('user');
+    this.fetchApiData.getUser(username).subscribe((resp: any) => {
+    this.currentUser = resp.Username;
+    this.currentFavs = resp.FavoriteMovies 
+    });
+  }
+
+  addFavorite(id: string): void {
+    const token = localStorage.getItem('token');
+    this.fetchApiData.addFavoriteMovies(id).subscribe((resp: any) => {
+      this.ngOnInit();
+    });
+  }
+
+  isFav(id: string): boolean {
+    return this.currentFavs.includes(id);
+  }
+
+  removeFavorite(id: string): void {
+    const token = localStorage.getItem('token');
+    this.fetchApiData.removeFavoriteMovie(id).subscribe((resp: any) => {
+      this.ngOnInit();
     });
   }
 
@@ -55,4 +83,6 @@ export class MovieCardComponent {
         width: '500px',
       });
     }
+
+
 }

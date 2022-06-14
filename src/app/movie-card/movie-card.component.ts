@@ -26,6 +26,11 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
+  /**
+   * Utilizes the API data from backend,
+   * lists all movies in the backend data.
+   */
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -61,6 +66,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Uses GenreComponent that shows the following info:
+   * @param Name 
+   * @param Description 
+   */
+
   openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(GenreComponent, {
       data: { Name, Description },
@@ -68,12 +79,28 @@ export class MovieCardComponent {
     })
   }
 
+  /**
+   * Uses the DirectorComponent that shows the following info:
+   * @param Name 
+   * @param Bio 
+   * @param Birth 
+   * Bio & Popular Titles was not fully completed
+   */
+
   openDirectorDialog(Name: string, Bio: string, Birth: string): void {
     this.dialog.open(DirectorComponent, {
       data: { Name, Bio, Birth },
       width: '500px',
     })
   }
+
+
+  /**
+   * Uses the SynopsisComponent that shows the following:
+   * @param Title 
+   * @param Director 
+   * @param Description 
+   */
 
   openSynopsisDialog(
     Title: string,

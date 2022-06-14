@@ -8,23 +8,23 @@
         <img src={{movie.ImagePath}} alt= {{movie.Title}} />
         <mat-card-actions>
             <button class="action-button"
-                mat-button(click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+                mat-button (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
                 color="primary">
                 Genre
             </button>
             <button class="action-button"
-                mat-button(click)="openDirectorDialog(movie.Director.Name, movie.Director.Birth, movie.Director.Bio)"
+                mat-button (click)="openDirectorDialog(movie.Director.Name, movie.Director.Birth, movie.Director.Bio)"
                 color="primary">
                 Director
             </button>
             <button class="action-button"
-                mat-button(click)="openSynopsisDialog(movie.Title, movie.Director.Name, movie.Description)"
+                mat-button (click)="openSynopsisDialog(movie.Title, movie.Director.Name, movie.Description)"
                 color="primary">
                 Synopsis
             </button>
             <button mat-icon-button>
-                <mat-icon [ngStyle]="{'color':'white'}" *ngIf="isFav(movie._id)" (click)="removeFavorite(movie._id)">favorite</mat-icon>
-                <mat-icon [ngStyle]="{'color': 'white'}" *ngIf="!isFav(movie._id)" (click)="addFavorite(movie._id)">favorite_border</mat-icon>    
+                <mat-icon *ngIf="isFav(movie._id)" (click)="removeFavorite(movie._id)">favorite</mat-icon>
+                <mat-icon *ngIf="!isFav(movie._id)" (click)="addFavorite(movie._id)">favorite_border</mat-icon>    
             </button>
 
         </mat-card-actions>

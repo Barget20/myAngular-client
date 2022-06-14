@@ -10,8 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent implements OnInit {
+  user: any = {};
 
-  @Input() userData: any= {};
+  @Input() userData = {
+    Username: this.user.Username,
+    Password: this.user.Password,
+    Email: this.user.Email,
+    Birthday: this.user.Birthday,
+  };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -21,16 +27,32 @@ export class EditProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getUserProfile();
+  }
+
+  getUserProfile(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.user = resp;
+      console.log(this.user);
+    });
   }
 
   editUser():void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
       this.dialogRef.close();
       console.log(result);
+      localStorage.setItem('user', result.Username);
       this.snackbar.open('Sucessfully updated your profile', 'OK', {
-        duration: 2000
+        duration: 2000,
+        verticalPosition: 'top',
       });
-    })
+      setTimeout(() => {
+        window.location.reload();
+      });
+    });
   }
+    closeDialog(): void {
+      this.dialogRef.close();
+    }
 
 }

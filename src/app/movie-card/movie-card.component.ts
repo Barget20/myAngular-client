@@ -36,7 +36,7 @@ export class MovieCardComponent {
 
   getUser(): void {
     const username = localStorage.getItem('user');
-    this.fetchApiData.getUser(username).subscribe((resp: any) => {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
     this.currentUser = resp.Username;
     this.currentFavs = resp.FavoriteMovies 
     });
@@ -45,7 +45,8 @@ export class MovieCardComponent {
   addFavorite(id: string): void {
     const token = localStorage.getItem('token');
     this.fetchApiData.addFavoriteMovies(id).subscribe((resp: any) => {
-      this.ngOnInit();
+      console.log(resp);
+      this.currentFavs = resp.FavoriteMovies;
     });
   }
 
@@ -56,33 +57,31 @@ export class MovieCardComponent {
   removeFavorite(id: string): void {
     const token = localStorage.getItem('token');
     this.fetchApiData.removeFavoriteMovie(id).subscribe((resp: any) => {
-      this.ngOnInit();
+      this.currentFavs = resp.FavoriteMovies;
     });
   }
 
-  openGenreDialog(name: string, description: string): void {
+  openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(GenreComponent, {
-      data: { name, description },
+      data: { Name, Description },
       width: '500px',
     })
   }
 
-  openDirectorDialog(name: string, bio: string, birth: string): void {
+  openDirectorDialog(Name: string, Bio: string, Birth: string): void {
     this.dialog.open(DirectorComponent, {
-      data: { name, bio, birth },
+      data: { Name, Bio, Birth },
       width: '500px',
     })
   }
 
   openSynopsisDialog(
-    title: string,
-    director: string,
-    description: string ): void {
+    Title: string,
+    Director: string,
+    Description: string ): void {
       this.dialog.open(SynopsisComponent, {
-        data: { title, director, description },
+        data: { Title, Director, Description },
         width: '500px',
       });
     }
-
-
 }

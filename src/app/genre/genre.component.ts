@@ -12,7 +12,7 @@ export class GenreComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      Title: string,
+      Name: string,
       Description: string,
     })
    { }

@@ -105,7 +105,7 @@ getFavoriteMovies(): Observable<any> {
 removeFavoriteMovie(movieID: any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('user');
-  return this.http.delete(apiUrl + `users/${username}/movies/${movieID}`, {headers: new HttpHeaders (
+  return this.http.delete(apiUrl + `users/${username}/favoritesList/${movieID}`, {headers: new HttpHeaders (
     {
       Authorization: 'Bearer ' + token,
     })}).pipe(
@@ -131,13 +131,13 @@ deleteUser(): Observable<any> {
 addFavoriteMovies(movieID: any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('user');
-  return this.http.post(apiUrl + `users/${username}/movies/${movieID}`, {headers: new HttpHeaders (
+  return this.http.post(apiUrl + `users/${username}/favoritesList/${movieID}`, {}, {headers: new HttpHeaders (
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(
-      map(this.extractResponseData),
-      catchError(this.handleError)
-    );
+    }),
+  })
+  .pipe(map(this.extractResponseData),
+      catchError(this.handleError));
 }
 
 editUser(updateDetails: any): Observable<any> {

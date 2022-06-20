@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   
 ## Image
   
-
+  ![screely-1655749897855](https://user-images.githubusercontent.com/89669426/174660637-5330cbbc-de45-44e0-bd19-c8bdd8c3670d.png)
 
 ## Development server
 

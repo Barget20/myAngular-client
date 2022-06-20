@@ -1,7 +1,13 @@
-* {
-    box-sizing: border-box;
-    font-family: garamond;
-    font-size: 5000 px;
-    background-color: #080333;
-    color: #527fd3;
-  }
+mat-card {
+  box-sizing: border-box;
+  font-family: garamond;
+  font-size: 5000px;
+  background-color: #423e6a;
+  color: #527fd3;
+}
+
+img {
+  max-width: 266px;
+  max-height: 400px;
+}
+  

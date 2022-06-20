@@ -1,9 +1,13 @@
 mat-card {
   box-sizing: border-box;
   font-family: garamond;
-  font-size: 5000px;
-  background-color: #423e6a;
-  color: #527fd3;
+  background-color: #374A67;
+  color: #80A1D4;
+}
+
+.action-button {
+  background-color: #374A67;
+  color: #80A1D4;
 }
 
 img {
@@ -11,3 +15,8 @@ img {
   max-height: 400px;
 }
   
+// .image-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }

@@ -5,6 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description
 
 <p> To rebuild the client-side of a previously built application (movie_api) using Angular instead of React. <p>
+  
+## Image
+  
+
 
 ## Development server
 
